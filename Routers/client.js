@@ -73,7 +73,7 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', (req, res) => {
   const valid = ajv.validateLogin(req.body);
-  if (req.session && req.session.user !== null && req.session.user !== undefined) {
+  if (req.session && req.session.user && req.session.user !== null && req.session.user !== undefined) {
     res.redirect(301, (req.query.redirectTo || '/'));
   } else if (valid === null) {
     models.users.findOne({
@@ -101,7 +101,7 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/whoami', (req, res) => {
-  if (req.session && req.session.user.id !== null && req.session.user.id !== undefined) {
+  if (req.session && req.session.user && req.session.user.id) {
     res.send(`Logged in as: ${req.session.user.username}`);
   } else {
     res.send('Currently not logged in');
@@ -109,7 +109,7 @@ router.get('/whoami', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  if (req.session && req.session.user.id !== null && req.session.user.id !== undefined) {
+  if (req.session && req.session.user && req.session.user.id) {
     res.send(`Logged in as: ${req.session.user.username}\nThis is not the front page of the internet.`);
   } else {
     res.send('Currently not logged in');
