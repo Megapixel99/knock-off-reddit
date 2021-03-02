@@ -25,6 +25,24 @@ project directory to run the server, which will expose the API:
 $ npm start
 ```
 
+### How to build the project using Docker
+
+In your Terminal or Command Prompt, run the following at the root of the
+project directory to run the server, which will expose the API:
+
+```
+$ docker build --tag  not-reddit .
+```
+
+### How to run the project using Docker
+
+In your Terminal or Command Prompt, run the following at the root of the
+project directory to run the server, which will expose the API:
+
+```
+$ docker run -t -p 80:3000 --env-file ./.env not-reddit
+```
+
 ### How to test the project using NodeJS
 
 In your Terminal or Command Prompt, run the following at the root of the
