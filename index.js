@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { dbConn, env, session } = require('./Functions');
+const { api, client } = require('./Routers');
 
 const app = express();
 
@@ -15,6 +16,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session);
+
+app.use('/api/v1', api);
+app.use(client);
 
 app.get('/ping', (req, res) => {
   res.status(200).send('pong');
