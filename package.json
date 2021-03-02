@@ -4,13 +4,15 @@
   "description": "Basic Reddit clone featuring users and mostly functioning Sub Reddits. For learning/teaching purposes only.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/cucumber-js --exit --fail-fast",
+    "pretest": "./node_modules/.bin/eslint . --fix",
     "start": "node ./index.js"
   },
   "author": "Seth Wheeler",
   "license": "MIT",
   "dependencies": {
     "ajv": "^7.1.1",
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "connect-mongo": "^4.2.0",
@@ -25,6 +27,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^7.0.0",
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"

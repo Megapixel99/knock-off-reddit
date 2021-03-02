@@ -24,3 +24,27 @@ project directory to run the server, which will expose the API:
 ```
 $ npm start
 ```
+
+### How to test the project using NodeJS
+
+In your Terminal or Command Prompt, run the following at the root of the
+project directory to run the tests:
+
+```
+$ npm test
+```
+
+### How to clean up the source code
+
+In your Terminal or Command Prompt, run the following at the root of the
+project directory:
+
+```
+$ npm i eslint --save-dev
+```
+then run (at the root of the
+project directory):
+
+```
+$ ./node_modules/.bin/eslint . --fix
+```
