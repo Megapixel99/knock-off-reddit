@@ -26,6 +26,10 @@ const usersSchema = mongoose.Schema({
       color: String,
     },
   },
+  mfa: {
+    enabled: Boolean,
+    secret: String,
+  },
   cakeDay: Date,
   coins: Number,
   followers: Array,
